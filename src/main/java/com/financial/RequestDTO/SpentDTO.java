@@ -1,3 +1,4 @@
+/*
 package com.financial.RequestDTO;
 
 import jakarta.validation.constraints.NotBlank;
@@ -23,3 +24,4 @@ public class SpentDTO {
     private boolean installment;
     private String reason;
 }
+*/

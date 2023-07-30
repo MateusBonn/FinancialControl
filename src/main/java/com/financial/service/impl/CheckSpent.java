@@ -1,7 +1,7 @@
+/*
 package com.financial.service.impl;
 
 import com.financial.RequestDTO.SpentDTO;
-import com.financial.exceptionhandler.MessageExceptionHandler;
 import com.financial.model.SpentModel;
 import com.financial.repository.SpentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,3 +23,4 @@ public class CheckSpent {
 
     }
 }
+*/

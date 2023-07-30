@@ -1,9 +1,12 @@
 package com.financial.service;
 
 import com.financial.RequestDTO.TypeExpenseDTO;
+import reactor.core.publisher.Mono;
 
 
 public interface TypeExpenseService {
 
-    void saveTypeExpense(TypeExpenseDTO typeExpenseDTO) ;
+     Mono<Object> saveTypeExpense(TypeExpenseDTO typeExpenseDTO) ;
+  /*  void updateTypeExpense(TypeExpenseDTO typeExpenseDTO);*/
+
 }

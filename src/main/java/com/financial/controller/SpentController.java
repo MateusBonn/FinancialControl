@@ -1,4 +1,5 @@
-package com.financial.Controller;
+/*
+package com.financial.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,3 +12,4 @@ public class SpentController {
 
 
 }
+*/

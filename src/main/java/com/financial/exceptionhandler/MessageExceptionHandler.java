@@ -1,3 +1,4 @@
+/*
 package com.financial.exceptionhandler;
 
 import lombok.AllArgsConstructor;
@@ -18,3 +19,4 @@ public class MessageExceptionHandler extends RuntimeException{
 
     private String message;
 }
+*/

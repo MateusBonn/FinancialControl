@@ -1,31 +1,23 @@
 package com.financial.model;
 
-import jakarta.persistence.*;
 import lombok.*;
-
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.Document;
 import java.io.Serializable;
-import java.util.List;
-import java.util.UUID;
 
-@Entity
-@Table(name = "TB_TYPE_EXPENSE")
-@Getter
-@Setter
+
+@Document
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
+@Builder
 public class TypeExpenseModel implements Serializable{
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID typeExpenseId;
+    private String typeExpenseId;
 
-    @Column(nullable = false, unique = true)
+    @Indexed(unique = true)
     private String typeExpense;
 
-    @Column (nullable = false, unique = false)
     private String obs;
 
-    @OneToMany(mappedBy = "typeExpense")
-    private List<SpentModel> spents;
 }

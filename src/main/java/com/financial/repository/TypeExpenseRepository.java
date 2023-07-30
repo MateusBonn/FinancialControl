@@ -1,14 +1,15 @@
 package com.financial.repository;
 
+import com.financial.RequestDTO.TypeExpenseDTO;
 import com.financial.model.TypeExpenseModel;
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.reactive.ReactiveCrudRepository;
 import org.springframework.stereotype.Repository;
+import reactor.core.publisher.Mono;
 
-import java.util.Optional;
 import java.util.UUID;
 
 @Repository
-public interface TypeExpenseRepository extends JpaRepository<TypeExpenseModel, UUID> {
+public interface TypeExpenseRepository extends ReactiveCrudRepository<TypeExpenseModel, UUID> {
 
-    Optional<TypeExpenseModel> findByTypeExpense(String typeExpense);
+    Mono<TypeExpenseDTO> findByTypeExpense(String typeExpense);
 }

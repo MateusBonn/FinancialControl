@@ -1,3 +1,4 @@
+/*
 package com.financial.service.impl;
 
 import com.financial.RequestDTO.SpentDTO;
@@ -25,3 +26,4 @@ public class SpentServiceImpl implements SpentService {
         spentRepository.save(spendingModel);
     }
 }
+*/

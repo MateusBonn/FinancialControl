@@ -1,6 +1,7 @@
 package com.financial.service.impl;
 
 import com.financial.RequestDTO.SaveLoginDTO;
+import com.financial.exceptionhandler.ExceptionHandled;
 import com.financial.mapper.LoginMapper;
 import com.financial.repository.LoginRepository;
 import com.financial.service.LoginService;
@@ -25,8 +26,8 @@ public class LoginServiceImpl implements LoginService {
 
     @Override
     public Mono<Object> saveLogin(SaveLoginDTO loginDTO) {
-        return loginRepository.findByCpf(loginDTO.cpf())
-                .flatMap(existingLogin -> Mono.error(new ExistLoginException("CPF já cadastrado")))
+        return loginRepository.findByCpf(loginDTO.getCpf())
+                .flatMap(existingLogin -> Mono.error(new ExceptionHandled("CPF ALREADY EXIST")))
                 .switchIfEmpty(loginRepository.save(loginMapper.toEntity(loginDTO)));
     }
 

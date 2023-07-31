@@ -18,9 +18,7 @@ import static org.mapstruct.NullValuePropertyMappingStrategy.IGNORE;
 )
 public interface LoginMapper {
 
-    @Mapping(target = "cpf", ignore = true)
     LoginModel toEntity(final SaveLoginDTO saveLoginDTO);
-    @Mapping(target = "cpf", ignore = true)
     LoginModel toEntity(final SaveLoginDTO saveLoginDTO, @MappingTarget final LoginModel entity);
 
    /* UserResponse toResponse(final LoginModel loginModel);*/

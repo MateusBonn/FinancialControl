@@ -7,15 +7,15 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import java.io.Serializable;
 
 
-@Document
+@Document("TB_TYPE_EXPENSE")
 @Data
 @Builder
 public class TypeExpenseModel implements Serializable{
 
+
     @Id
     private String typeExpenseId;
 
-    @Indexed(unique = true)
     private String typeExpense;
 
     private String obs;

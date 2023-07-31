@@ -1,15 +1,10 @@
-/*
 package com.financial.RequestDTO;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@AllArgsConstructor
-@NoArgsConstructor
 @Getter
 @Setter
 public class SpentDTO {
@@ -23,5 +18,8 @@ public class SpentDTO {
     @NotNull(message = "Installment can't be null")
     private boolean installment;
     private String reason;
+
+    @NotNull(message = "Type expense can't be null")
+    private String typeExpenseId;
+
 }
-*/

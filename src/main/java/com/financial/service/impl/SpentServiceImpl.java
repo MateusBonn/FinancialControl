@@ -1,29 +1,31 @@
-/*
 package com.financial.service.impl;
 
 import com.financial.RequestDTO.SpentDTO;
-import com.financial.model.SpentModel;
+import com.financial.exceptionhandler.ExceptionHandled;
+import com.financial.mapper.SpentMapper;
 import com.financial.repository.SpentRepository;
+import com.financial.repository.TypeExpenseRepository;
 import com.financial.service.SpentService;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import reactor.core.publisher.Mono;
 
+@Service
 public class SpentServiceImpl implements SpentService {
 
     @Autowired
     SpentRepository spentRepository;
 
     @Autowired
-    CheckSpent checkSpent;
+    SpentMapper spentMapper;
+
 
     @Override
-    public void saveSpent(SpentDTO spentDTO) {
-        spentDTO.setSpentName(spentDTO.getSpentName().toUpperCase());
-        checkSpent.verifySpent(spentDTO);
+    public Mono<Object> saveSpent(SpentDTO spentDTO) {
+        return spentRepository.findBySpentName(spentDTO.getSpentName())
+                .flatMap(existingSpent -> Mono.error(new ExceptionHandled("Spent already exist")))
+                .switchIfEmpty(spentRepository.save(spentMapper.toEntity(spentDTO)));
 
-        var spendingModel = new SpentModel();
-        BeanUtils.copyProperties(spentDTO, spendingModel);
-        spentRepository.save(spendingModel);
     }
 }
-*/
+

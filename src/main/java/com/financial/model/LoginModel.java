@@ -3,12 +3,13 @@ package com.financial.model;
 
 import lombok.*;
 import org.springframework.data.annotation.Id;
+
 import org.springframework.data.mongodb.core.mapping.Document;
 import java.io.Serializable;
 import java.time.LocalDate;
 
 
-@Document
+@Document("TB_LOGIN")
 @Data
 @Builder
 public class LoginModel implements Serializable {
@@ -16,14 +17,13 @@ public class LoginModel implements Serializable {
     @Id
     private String cpf;
 
-    private String nomeCompleto;
+    private String fullName;
 
-
-    private LocalDate dataNasc;
+    private LocalDate dateBirth;
 
     private String email;
 
     private String user;
 
-    private String senha;
+    private String password;
 }

@@ -3,7 +3,7 @@ package com.financial.controller;
 
 import com.financial.RequestDTO.TypeExpenseDTO;
 import com.financial.service.TypeExpenseService;
-import com.financial.service.impl.ExistLoginException;
+import com.financial.exceptionhandler.ExceptionHandled;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,9 +24,10 @@ public class TypeExpenseController {
 
     @PostMapping("/save")
    public Mono<ResponseEntity<String>> saveTypeExpense(@RequestBody @Valid TypeExpenseDTO typeExpenseDTO) {
+        typeExpenseDTO.setTypeExpense(typeExpenseDTO.getTypeExpense().toUpperCase());
         return typeExpenseService.saveTypeExpense(typeExpenseDTO)
                 .then(Mono.just(ResponseEntity.status(HttpStatus.CREATED).body("Tipo de gasto salvo com sucesso!")))
-                .onErrorResume(ExistLoginException.class, e -> Mono.just(ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro ao salvar Tipo de gasto: " + e.getMessage())))
+                .onErrorResume(ExceptionHandled.class, e -> Mono.just(ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro ao salvar Tipo de gasto: " + e.getMessage())))
                 .switchIfEmpty(Mono.just(ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro ao salvar Tipo de gasto.")));
     }
  /*   @GetMapping("/body")

@@ -12,4 +12,6 @@ import java.util.UUID;
 public interface TypeExpenseRepository extends ReactiveCrudRepository<TypeExpenseModel, UUID> {
 
     Mono<TypeExpenseDTO> findByTypeExpense(String typeExpense);
+    Mono<TypeExpenseDTO> findByTypeExpenseId(String typeExpenseId);
+
 }

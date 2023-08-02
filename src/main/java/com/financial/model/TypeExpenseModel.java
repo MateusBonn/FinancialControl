@@ -2,19 +2,20 @@ package com.financial.model;
 
 import lombok.*;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.index.Indexed;
-import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.relational.core.mapping.Column;
+import org.springframework.data.relational.core.mapping.Table;
+
 import java.io.Serializable;
+import java.util.UUID;
 
 
-@Document("TB_TYPE_EXPENSE")
-@Data
+@Getter
+@Setter
+@Table("TB_TYPE_EXPENSE")
 @Builder
 public class TypeExpenseModel implements Serializable{
 
-
-    @Id
-    private String typeExpenseId;
+    private Long typeExpenseId;
 
     private String typeExpense;
 

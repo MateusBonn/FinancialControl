@@ -20,6 +20,6 @@ public class SpentDTO {
     private String reason;
 
     @NotNull(message = "Type expense can't be null")
-    private String typeExpenseId;
+    private Long typeExpenseId;
 
 }

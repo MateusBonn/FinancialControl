@@ -9,9 +9,9 @@ import reactor.core.publisher.Mono;
 import java.util.UUID;
 
 @Repository
-public interface TypeExpenseRepository extends ReactiveCrudRepository<TypeExpenseModel, UUID> {
+public interface TypeExpenseRepository extends ReactiveCrudRepository<TypeExpenseModel, Long> {
 
-    Mono<TypeExpenseDTO> findByTypeExpense(String typeExpense);
-    Mono<TypeExpenseDTO> findByTypeExpenseId(String typeExpenseId);
+    Mono<TypeExpenseModel> findByTypeExpense(String typeExpense);
+    Mono<TypeExpenseModel> findByTypeExpenseId(Long typeExpenseId);
 
 }

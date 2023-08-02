@@ -2,17 +2,19 @@ package com.financial.model;
 
 import lombok.*;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.relational.core.mapping.Table;
+
 import java.io.Serializable;
+import java.util.UUID;
 
 
-@Document("TB_SPENT")
-@Data
+@Getter
+@Setter
+@Table("TB_SPENT")
 @Builder
 public class SpentModel implements Serializable {
 
-    @Id
-    private String spentId;
+    private Long spentId;
 
     private String spentName;
 
@@ -22,6 +24,6 @@ public class SpentModel implements Serializable {
 
     private String reason;
 
-    private String typeExpenseId;
+    private Long typeExpenseId;
 }
 

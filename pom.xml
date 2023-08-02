@@ -28,6 +28,12 @@
 			<artifactId>spring-boot-starter-webflux</artifactId>
 		</dependency>
 
+		<!-- Mongodb Connector
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-mongodb-reactive</artifactId>
+		</dependency> -->
+
 		<!--Banco de dados MySQL-->
 
 		<dependency>
@@ -51,20 +57,10 @@
 			<version>0.8.2.RELEASE</version>
 		</dependency>
 
-		<!--data r2dbc-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-r2dbc</artifactId>
 		</dependency>
-
-		<!--devtools-->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-devtools</artifactId>
-			<scope>runtime</scope>
-			<optional>true</optional>
-		</dependency>
-
 
 		<!-- Lombok -->
 		<dependency>

@@ -1,6 +1,7 @@
 package com.financial.RequestDTO;
 
 import jakarta.validation.constraints.NotNull;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -8,6 +9,7 @@ import java.time.LocalDate;
 
 @Getter
 @Setter
+@AllArgsConstructor
 public class SaveLoginDTO {
 
         @NotNull(message = "CPF can't be null")
